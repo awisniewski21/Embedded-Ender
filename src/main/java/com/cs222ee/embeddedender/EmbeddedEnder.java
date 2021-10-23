@@ -1,6 +1,9 @@
 package com.cs222ee.embeddedender;
 
+import com.cs222ee.embeddedender.block.ModBlocks;
+import com.cs222ee.embeddedender.entity.ModEntityTypes;
 import com.cs222ee.embeddedender.item.ModItems;
+import com.cs222ee.embeddedender.world.ModOreGeneration;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -30,18 +33,21 @@ public class EmbeddedEnder {
 
     public EmbeddedEnder() {
         // Register the setup method for modloading
-        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register Embedded Ender items
-        ModItems.register(eventBus);
+        // Forge event bus
+        IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
 
-        eventBus.addListener(this::setup);
-        // Register the enqueueIMC method for modloading
-        eventBus.addListener(this::enqueueIMC);
-        // Register the processIMC method for modloading
-        eventBus.addListener(this::processIMC);
-        // Register the doClientStuff method for modloading
-        eventBus.addListener(this::doClientStuff);
+        // Register Embedded Ender items, blocks, entities, and features (ore generation)
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModEntityTypes.register(modEventBus);
+        ModOreGeneration.register(forgeEventBus);
+
+        modEventBus.addListener(this::setup);
+        modEventBus.addListener(this::enqueueIMC);
+        modEventBus.addListener(this::processIMC);
+        modEventBus.addListener(this::doClientStuff);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
