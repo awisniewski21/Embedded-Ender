@@ -2,6 +2,7 @@ package com.cs222ee.embeddedender;
 
 import com.cs222ee.embeddedender.block.ModBlocks;
 import com.cs222ee.embeddedender.entity.ModEntityTypes;
+import com.cs222ee.embeddedender.entity.render.EnderChickenRenderer;
 import com.cs222ee.embeddedender.item.ModItems;
 import com.cs222ee.embeddedender.world.ModOreGeneration;
 import net.minecraft.block.Block;
@@ -68,6 +69,7 @@ public class EmbeddedEnder {
     private void doClientStuff(final FMLClientSetupEvent event) {
         // Do something that can only be done on the client
         registerEntityModels(event.getMinecraftSupplier());
+
     }
 
     // Register entity models on the client
@@ -75,6 +77,8 @@ public class EmbeddedEnder {
         ItemRenderer renderer = minecraft.get().getItemRenderer();
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ENDER_EGG.get(),
                 (renderManager) -> new SpriteRenderer<>(renderManager, renderer));
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ENDER_CHICKEN.get(),
+                EnderChickenRenderer::new);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

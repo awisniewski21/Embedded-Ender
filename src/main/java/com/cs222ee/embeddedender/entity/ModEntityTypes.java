@@ -1,9 +1,11 @@
 package com.cs222ee.embeddedender.entity;
 
 import com.cs222ee.embeddedender.EmbeddedEnder;
+import com.cs222ee.embeddedender.entity.custom.EnderChickenEntity;
 import com.cs222ee.embeddedender.entity.custom.EnderEggEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -26,6 +28,14 @@ public class ModEntityTypes {
                             .trackingRange(4)
                             .updateInterval(10)
                             .build("ender_egg"));
+
+    // Add Ender Chicken entity
+    public static final RegistryObject<EntityType<EnderChickenEntity>> ENDER_CHICKEN =
+            ENTITY_TYPES.register("ender_chicken",
+                    ()-> EntityType.Builder.<EnderChickenEntity>create(EnderChickenEntity::new,
+                                    EntityClassification.AMBIENT)
+                            .build(new ResourceLocation(EmbeddedEnder.MOD_ID,
+                                    "ender_chicken").toString()));
 
     // Register list with (Mod) event bus
     public static void register(IEventBus eventBus) {

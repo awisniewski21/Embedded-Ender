@@ -5,7 +5,6 @@ import com.cs222ee.embeddedender.item.ModItems;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.network.IPacket;
@@ -74,10 +73,11 @@ public class EnderEggEntity extends ProjectileItemEntity {
                 }
 
                 for (int j = 0; j < i; ++j) {
-                    CatEntity catentity = EntityType.CAT.create(this.world);
-                    catentity.setGrowingAge(-24000);
-                    catentity.setLocationAndAngles(this.getPosX(), this.getPosY(), this.getPosZ(), this.rotationYaw, 0.0F);
-                    this.world.addEntity(catentity);
+                    EnderChickenEntity enderChickenEntity = ModEntityTypes.ENDER_CHICKEN.get().create(this.world);
+                    assert enderChickenEntity != null;
+                    enderChickenEntity.setGrowingAge(-24000);
+                    enderChickenEntity.setLocationAndAngles(this.getPosX(), this.getPosY(), this.getPosZ(), this.rotationYaw, 0.0F);
+                    this.world.addEntity(enderChickenEntity);
                 }
             }
 

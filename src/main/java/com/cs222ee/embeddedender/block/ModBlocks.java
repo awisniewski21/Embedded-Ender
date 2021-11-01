@@ -2,13 +2,13 @@ package com.cs222ee.embeddedender.block;
 
 import com.cs222ee.embeddedender.EmbeddedEnder;
 import com.cs222ee.embeddedender.block.custom.EnderGemOre;
+import com.cs222ee.embeddedender.item.ModItemGroup;
 import com.cs222ee.embeddedender.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -47,7 +47,7 @@ public class ModBlocks {
     // Register the item associated with the block
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().group(ItemGroup.MATERIALS)));
+                new Item.Properties().group(ModItemGroup.EMBEDDED_ENDER_GROUP)));
     }
 
     // Register list with (Mod) event bus

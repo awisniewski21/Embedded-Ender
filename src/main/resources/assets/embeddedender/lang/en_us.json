@@ -1,4 +1,6 @@
 {
   "item.embeddedender.ender_egg": "Ender Egg",
-  "block.embeddedender.ender_gem_ore": "Ender Gem Ore"
+  "item.embeddedender.ender_chicken_spawn_egg": "Ender Chicken Spawn Egg",
+  "block.embeddedender.ender_gem_ore": "Ender Gem Ore",
+  "itemGroup.embeddedEnderTab": "Embedded Ender"
 }
