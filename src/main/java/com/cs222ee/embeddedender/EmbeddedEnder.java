@@ -6,11 +6,15 @@ import com.cs222ee.embeddedender.item.ModItems;
 import com.cs222ee.embeddedender.world.ModOreGeneration;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -20,6 +24,8 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.function.Supplier;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(EmbeddedEnder.MOD_ID)
@@ -60,8 +66,15 @@ public class EmbeddedEnder {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        // do something that can only be done on the client
-        //LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+        // Do something that can only be done on the client
+        registerEntityModels(event.getMinecraftSupplier());
+    }
+
+    // Register entity models on the client
+    private void registerEntityModels(Supplier<Minecraft> minecraft) {
+        ItemRenderer renderer = minecraft.get().getItemRenderer();
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ENDER_EGG.get(),
+                (renderManager) -> new SpriteRenderer<>(renderManager, renderer));
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

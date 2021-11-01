@@ -23,7 +23,7 @@ public class ModItems {
     public static final RegistryObject<Item> ENDER_EGG = ITEMS.register("ender_egg",
             () -> new EnderEgg(new Item.Properties().group(ItemGroup.MISC)));
 
-    // Register list with Forge
+    // Register list with (Mod) event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

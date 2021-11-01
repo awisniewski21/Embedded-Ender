@@ -22,9 +22,12 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<EnderEggEntity>> ENDER_EGG =
             ENTITY_TYPES.register("ender_egg",
                     ()-> EntityType.Builder.<EnderEggEntity>create(EnderEggEntity::new, EntityClassification.MISC)
+                            .size(0.25f, 0.25f)
+                            .trackingRange(4)
+                            .updateInterval(10)
                             .build("ender_egg"));
 
-    // Register list with forge
+    // Register list with (Mod) event bus
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
