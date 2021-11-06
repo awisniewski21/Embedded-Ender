@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "embeddedender:ender_gem_ore"
+  },
+  "result": "embeddedender:ender_gem",
+  "experience": 2.0,
+  "cookingtime": 400
+}

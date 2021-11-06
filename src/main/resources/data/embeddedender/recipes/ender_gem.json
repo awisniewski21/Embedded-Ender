@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "embeddedender:ender_gem_block"
+    }
+  ],
+  "result": {
+    "item": "embeddedender:ender_gem",
+    "count": 9
+  }
+}

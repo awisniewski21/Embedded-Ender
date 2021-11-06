@@ -1,6 +1,17 @@
 {
   "item.embeddedender.ender_egg": "Ender Egg",
+  "item.embeddedender.ender_gem": "Ender Gem",
   "item.embeddedender.ender_chicken_spawn_egg": "Ender Chicken Spawn Egg",
+  "item.embeddedender.ender_gem_pickaxe": "Ender Gem Pickaxe",
+  "item.embeddedender.ender_gem_sword": "Ender Gem Sword",
+  "item.embeddedender.ender_gem_shovel": "Ender Gem Shovel",
+  "item.embeddedender.ender_gem_axe": "Ender Gem Axe",
+  "item.embeddedender.ender_gem_hoe": "Ender Gem Hoe",
+  "item.embeddedender.ender_gem_helmet": "Ender Gem Helmet",
+  "item.embeddedender.ender_gem_chestplate": "Ender Gem Chestplate",
+  "item.embeddedender.ender_gem_leggings": "Ender Gem Leggings",
+  "item.embeddedender.ender_gem_boots": "Ender Gem Boots",
   "block.embeddedender.ender_gem_ore": "Ender Gem Ore",
+  "block.embeddedender.ender_gem_block": "Ender Gem Block",
   "itemGroup.embeddedEnderTab": "Embedded Ender"
 }

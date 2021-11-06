@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "embeddedender:ender_gem"
+    }
+  },
+  "result": {
+    "item": "embeddedender:ender_gem_block"
+  }
+}

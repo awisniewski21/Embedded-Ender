@@ -37,6 +37,16 @@ public class ModBlocks {
                     .harvestTool(ToolType.PICKAXE)
                     .setRequiresTool()));
 
+    // Add Ender Gem Ore
+    public static final RegistryObject<Block> ENDER_GEM_BLOCK = registerBlock("ender_gem_block",
+            () -> new Block(Block.Properties.create(Material.ROCK)
+                    .sound(SoundType.STONE)
+                    .hardnessAndResistance(20f, 25f)
+                    .setLightLevel(s -> 0)
+                    .harvestLevel(4) // Requires netherite
+                    .harvestTool(ToolType.PICKAXE)
+                    .setRequiresTool()));
+
     // Register block as well as the item associated with the block
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

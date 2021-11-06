@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "embeddedender:ender_gem"
+    }
+  },
+  "result": {
+    "item": "embeddedender:ender_gem_boots"
+  }
+}

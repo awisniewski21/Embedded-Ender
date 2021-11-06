@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "embeddedender:block/ender_gem_block"
+  }
+}

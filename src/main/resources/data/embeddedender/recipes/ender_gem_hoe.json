@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    " #",
+    " #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "embeddedender:ender_gem"
+    }
+  },
+  "result": {
+    "item": "embeddedender:ender_gem_hoe"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "embeddedender:ender_gem"
+    }
+  ],
+  "result": {
+    "item": "embeddedender:ender_egg"
+  }
+}
