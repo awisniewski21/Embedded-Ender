@@ -13,5 +13,7 @@
   "item.embeddedender.ender_gem_boots": "Ender Gem Boots",
   "block.embeddedender.ender_gem_ore": "Ender Gem Ore",
   "block.embeddedender.ender_gem_block": "Ender Gem Block",
-  "itemGroup.embeddedEnderTab": "Embedded Ender"
+  "itemGroup.embeddedEnderTab": "Embedded Ender",
+  "block.embeddedender.embender": "Embender",
+  "screen.embeddedender.embender": "Embender"
 }
