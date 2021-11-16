@@ -1,0 +1,5 @@
+{
+  "variants":{
+    "": { "model": "embeddedender:block/embender" }
+  }
+}
