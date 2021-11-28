@@ -24,6 +24,9 @@ public class ModItems {
     public static final RegistryObject<Item> ENDER_EGG = ITEMS.register("ender_egg",
             () -> new EnderEgg(new Item.Properties().group(ModItemGroup.EMBEDDED_ENDER_GROUP)));
 
+    public static final RegistryObject<Item> INFUSED_ENDER_GEM = ITEMS.register("infused_ender_gem",
+            () -> new Item(new Item.Properties().group(ModItemGroup.EMBEDDED_ENDER_GROUP)));
+
     public static final RegistryObject<Item> ENDER_GEM = ITEMS.register("ender_gem",
             () -> new Item(new Item.Properties().group(ModItemGroup.EMBEDDED_ENDER_GROUP)));
 
@@ -62,6 +65,7 @@ public class ModItems {
     public static final RegistryObject<Item> ENDER_GEM_HELMET = ITEMS.register("ender_gem_helmet",
             () -> new ArmorItem(ModArmorMaterial.ENDER_GEM, EquipmentSlotType.HEAD,
                     new Item.Properties().group(ModItemGroup.EMBEDDED_ENDER_GROUP)));
+
 
     // 0x231336 - Primary spawn egg color is dark purple
     // 0xfd0bfd - Secondary spawn egg color is bright pink/purple

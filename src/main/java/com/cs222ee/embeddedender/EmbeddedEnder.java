@@ -1,14 +1,18 @@
 package com.cs222ee.embeddedender;
 
 import com.cs222ee.embeddedender.block.ModBlocks;
+import com.cs222ee.embeddedender.container.ModContainers;
 import com.cs222ee.embeddedender.entity.ModEntityTypes;
 import com.cs222ee.embeddedender.entity.render.EmbeddedEndermanRenderer;
 import com.cs222ee.embeddedender.entity.render.EnderChickenRenderer;
 import com.cs222ee.embeddedender.item.ModItems;
+import com.cs222ee.embeddedender.screen.EmbenderScreen;
+import com.cs222ee.embeddedender.tileentity.ModTileEntities;
 import com.cs222ee.embeddedender.world.ModOreGeneration;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraftforge.common.MinecraftForge;
@@ -16,6 +20,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -50,6 +55,8 @@ public class EmbeddedEnder {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModEntityTypes.register(modEventBus);
+        ModTileEntities.register(modEventBus);
+        ModContainers.register(modEventBus);
         ModOreGeneration.register(forgeEventBus);
 
         modEventBus.addListener(this::setup);
@@ -71,6 +78,8 @@ public class EmbeddedEnder {
         // Do something that can only be done on the client
         registerEntityModels(event.getMinecraftSupplier());
 
+        ScreenManager.registerFactory(ModContainers.EMBENDER_CONTAINER.get(),
+                EmbenderScreen::new);
     }
 
     // Register entity models on the client

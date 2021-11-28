@@ -4,6 +4,7 @@ import com.cs222ee.embeddedender.EmbeddedEnder;
 import com.cs222ee.embeddedender.block.custom.EnderGemOre;
 import com.cs222ee.embeddedender.item.ModItemGroup;
 import com.cs222ee.embeddedender.item.ModItems;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -47,6 +48,15 @@ public class ModBlocks {
                     .harvestTool(ToolType.PICKAXE)
                     .setRequiresTool()));
 
+    // Add Embender
+    public static final RegistryObject<Block> EMBENDER = registerBlock("embender",
+            () -> new Block(AbstractBlock.Properties.create(Material.MISCELLANEOUS)
+                    .harvestLevel(2).harvestTool(ToolType.PICKAXE).setRequiresTool() // Requires iron pickaxe
+                    .hardnessAndResistance(5f, 7f)
+                    .sound(SoundType.METAL)
+                    .setLightLevel(s -> 0)
+                    ));
+
     // Register block as well as the item associated with the block
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
@@ -64,4 +74,5 @@ public class ModBlocks {
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }
+
 }
