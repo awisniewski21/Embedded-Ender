@@ -71,6 +71,14 @@ public class ModItems {
                     0x231336, 0xfd0bfd,
                     new Item.Properties().group(ModItemGroup.EMBEDDED_ENDER_GROUP)));
 
+    // 0x000000 - Primary spawn egg color is black
+    // 0x160016 - Secondary spawn egg color is dark purple
+    public static final RegistryObject<ModSpawnEggItem> EMBEDDED_ENDERMAN_SPAWN_EGG =
+            ITEMS.register("embedded_enderman_spawn_egg",
+                    () -> new ModSpawnEggItem(ModEntityTypes.EMBEDDED_ENDERMAN,
+                            0x000000, 0x160016,
+                            new Item.Properties().group(ModItemGroup.EMBEDDED_ENDER_GROUP)));
+
     // Register list with (Mod) event bus
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

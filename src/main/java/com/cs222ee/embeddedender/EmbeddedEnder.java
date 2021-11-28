@@ -2,6 +2,7 @@ package com.cs222ee.embeddedender;
 
 import com.cs222ee.embeddedender.block.ModBlocks;
 import com.cs222ee.embeddedender.entity.ModEntityTypes;
+import com.cs222ee.embeddedender.entity.render.EmbeddedEndermanRenderer;
 import com.cs222ee.embeddedender.entity.render.EnderChickenRenderer;
 import com.cs222ee.embeddedender.item.ModItems;
 import com.cs222ee.embeddedender.world.ModOreGeneration;
@@ -79,6 +80,8 @@ public class EmbeddedEnder {
                 (renderManager) -> new SpriteRenderer<>(renderManager, renderer));
         RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ENDER_CHICKEN.get(),
                 EnderChickenRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.EMBEDDED_ENDERMAN.get(),
+                EmbeddedEndermanRenderer::new);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

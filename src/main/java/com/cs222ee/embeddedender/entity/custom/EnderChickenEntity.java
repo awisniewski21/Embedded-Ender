@@ -32,6 +32,7 @@ public class EnderChickenEntity extends AnimalEntity {
     public float oFlap;
     public float wingRotDelta = 1.0F;
     public int timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
+    public int timeUntilNextGem = this.rand.nextInt(3000) + 3000;
     public boolean chickenJockey;
 
     public EnderChickenEntity(EntityType<? extends EnderChickenEntity> type, World worldIn) {
@@ -79,10 +80,20 @@ public class EnderChickenEntity extends AnimalEntity {
         }
 
         this.wingRotation += this.wingRotDelta * 2.0F;
-        if (!this.world.isRemote && this.isAlive() && !this.isChild() && !this.isChickenJockey() && --this.timeUntilNextEgg <= 0) {
-            this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
-            this.entityDropItem(ModItems.ENDER_EGG.get());
-            this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
+        if (!this.world.isRemote && this.isAlive() && !this.isChild() && !this.isChickenJockey()) {
+            // Check if time to lay gem
+            if (--this.timeUntilNextGem <= 0) {
+                this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+                this.entityDropItem(ModItems.ENDER_GEM.get());
+                this.timeUntilNextGem = this.rand.nextInt(3000) + 3000;
+            }
+
+            // Check if time to lay egg
+            if (--this.timeUntilNextEgg <= 0) {
+                this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+                this.entityDropItem(ModItems.ENDER_EGG.get());
+                this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
+            }
         }
 
     }

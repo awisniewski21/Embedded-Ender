@@ -2,6 +2,7 @@ package com.cs222ee.embeddedender.events;
 
 import com.cs222ee.embeddedender.EmbeddedEnder;
 import com.cs222ee.embeddedender.entity.ModEntityTypes;
+import com.cs222ee.embeddedender.entity.custom.EmbeddedEndermanEntity;
 import com.cs222ee.embeddedender.entity.custom.EnderChickenEntity;
 import com.cs222ee.embeddedender.item.custom.ModSpawnEggItem;
 import net.minecraft.entity.EntityType;
@@ -19,6 +20,7 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void addEntityAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntityTypes.ENDER_CHICKEN.get(), EnderChickenEntity.setCustomAttributes().create());
+        event.put(ModEntityTypes.EMBEDDED_ENDERMAN.get(), EmbeddedEndermanEntity.setCustomAttributes().create());
     }
 
     @SubscribeEvent

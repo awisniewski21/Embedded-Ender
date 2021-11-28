@@ -1,6 +1,7 @@
 package com.cs222ee.embeddedender.entity;
 
 import com.cs222ee.embeddedender.EmbeddedEnder;
+import com.cs222ee.embeddedender.entity.custom.EmbeddedEndermanEntity;
 import com.cs222ee.embeddedender.entity.custom.EnderChickenEntity;
 import com.cs222ee.embeddedender.entity.custom.EnderEggEntity;
 import net.minecraft.entity.EntityClassification;
@@ -36,6 +37,14 @@ public class ModEntityTypes {
                                     EntityClassification.AMBIENT)
                             .build(new ResourceLocation(EmbeddedEnder.MOD_ID,
                                     "ender_chicken").toString()));
+
+    // Add Embedded Enderman entity
+    public static final RegistryObject<EntityType<EmbeddedEndermanEntity>> EMBEDDED_ENDERMAN =
+            ENTITY_TYPES.register("embedded_enderman",
+                    ()-> EntityType.Builder.<EmbeddedEndermanEntity>create(EmbeddedEndermanEntity::new,
+                                    EntityClassification.CREATURE)
+                            .build(new ResourceLocation(EmbeddedEnder.MOD_ID,
+                                    "embedded_enderman").toString()));
 
     // Register list with (Mod) event bus
     public static void register(IEventBus eventBus) {
